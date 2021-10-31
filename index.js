@@ -37,6 +37,13 @@ async function run() {
             console.log(food);
             res.json(result)
         })
+        // get data by email 
+        app.get("/orders/:email", async (req, res) => {
+            const emails = req.params.email;
+            const query = { email: { $regex: emails } }
+            const result = await orderCollection.find(query).toArray();
+            res.json(result)
+        })
         // get orders----------------------------------------------
         app.get('/orders', async (req, res) => {
             const cursor = orderCollection.find({});
