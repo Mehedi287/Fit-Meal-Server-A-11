@@ -83,6 +83,8 @@ run().catch(console.dir);
 app.get("/", (req, res) => {
     res.send("the server is runing")
 })
+// listen port 
+
 app.listen(port, () => {
     console.log("the server is runig with locahost 5000", port);
 })
